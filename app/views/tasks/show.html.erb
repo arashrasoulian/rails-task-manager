@@ -1,0 +1,18 @@
+
+<div style="margin:100px">
+  <div>
+    <h1 style="display:inline;"><%= @task.title %>  </h1>
+    <button style="float:right;" > <% link_to "Patch", task_path(@task) %> edit this task </button>
+  </div>
+
+  <div style = "width:100%; height:60px; background-color:gray;    justify-content: center; " >
+    <p style=" margin:20px; "> <%= @task.details %>  </p>
+  </div>
+    <input type="checkbox" <%= @task.completed ? "checked" : nil %> />
+
+  <span>this task <%= @task.completed ? " " : "is not " %>completed</span>
+  <%= link_to "Delete",
+              task_path(@task),
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+
+</div>
